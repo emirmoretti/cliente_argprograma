@@ -1,0 +1,9 @@
+<section class="container">
+    <form #educationForm="ngForm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre educacion</label>
+            <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="education.name">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="createEducation()">Submit</button>
+    </form>
+</section>

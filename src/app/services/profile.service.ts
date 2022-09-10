@@ -2,26 +2,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserApp } from '../models/user';
+import { Profile } from '../models/profile';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HeaderService {
+export class ProfileService {
 
   private apiServerUrl = environment.apiBaseUrl;
-
+  
   private httpHeaders = new HttpHeaders({
     'Content-type': 'application/json'
   })
 
   constructor(private http: HttpClient) { }
 
-  public getUser():Observable<UserApp>{
-    return this.http.get<UserApp>(`${this.apiServerUrl}/user/1`);
+  public getProfile():Observable<Profile>{
+    return this.http.get<Profile>(`${this.apiServerUrl}/profile`);
   }
-
-  public update(usuario: UserApp):Observable<UserApp>{
-    return this.http.put<UserApp>(`${this.apiServerUrl}/user/1`, usuario, {headers: this.httpHeaders});
+  public update(profile: Profile):Observable<Profile>{
+    return this.http.put<Profile>(`${this.apiServerUrl}/profile`, profile, {headers: this.httpHeaders});
   }
 }
