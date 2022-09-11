@@ -1,3 +1,4 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education';
 import { EducationService } from 'src/app/services/education.service';
@@ -32,6 +33,10 @@ export class ImageDetailsComponent implements OnInit {
     } else {
       this.educationService.subirFoto(this.fotoSeleccionada, this.education?.id).subscribe(
         (response) => {
+          let respon: any = response;
+          //console.log(respon)
+          this.education = respon as Education;
+          this.imageDetailsService.notificarUpload.emit(this.education);
           Swal.fire('Foto cargada', 'piola', 'success');
         }
       )

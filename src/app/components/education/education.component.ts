@@ -17,10 +17,22 @@ export class EducationComponent implements OnInit {
 
   educationSelected: Education | undefined;
 
-  constructor(private educationService: EducationService, private router: Router, private imageDetailsService: ImageDetailsService) { }
+  constructor(
+    private educationService: EducationService, 
+    private router: Router,
+    private imageDetailsService: ImageDetailsService) { }
 
   ngOnInit(): void {
     this.getEducations();
+
+    this.imageDetailsService.notificarUpload.subscribe(education => {
+      this.educationList = this.educationList?.map(educationOriginal => {
+        if(education.id == educationOriginal.id){
+          educationOriginal.image = education.image;
+        }
+        return educationOriginal;
+      })
+    })
   }
 
   public getEducations(): void {
