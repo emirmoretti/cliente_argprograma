@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Education } from 'src/app/models/education';
 import { EducationService } from 'src/app/services/education.service';
 import Swal from 'sweetalert2';
+import { ImageDetailsService } from './image-details/image-details.service';
 
 @Component({
   selector: 'app-education',
@@ -14,7 +15,9 @@ export class EducationComponent implements OnInit {
 
   educationList: Education[]  | undefined;
 
-  constructor(private educationService: EducationService, private router: Router) { }
+  educationSelected: Education | undefined;
+
+  constructor(private educationService: EducationService, private router: Router, private imageDetailsService: ImageDetailsService) { }
 
   ngOnInit(): void {
     this.getEducations();
@@ -59,4 +62,10 @@ export class EducationComponent implements OnInit {
       }
     })
   }
+
+  public openModal(education: Education){
+    this.educationSelected = education;
+    this.imageDetailsService.abrirModal();
+  }
+
 }

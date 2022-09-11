@@ -1,0 +1,27 @@
+<div *ngIf="imageDetailsService.modal" class="modal" tabindex="-1" style="display: block;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Imagen</h3>
+                <button type="button" (click)="closeModal()" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <h2>{{education?.name}}</h2>
+                        <img *ngIf="education?.image" src="{{education?.image?.imagenUrl}}" alt="">
+                    </div>
+                    <div class="col-sm">
+                        <div class="input-group">
+                            <input (change)="seleccionarFoto($event)" type="file" class="form-control"
+                                 aria-describedby="selectedFile" aria-label="Upload">
+                            <button (click)="enviarFoto()" class="btn btn-outline-secondary" type="button"
+                                id="inputGroupFileAddon04" [disabled]="!fotoSeleccionada">Subir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

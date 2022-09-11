@@ -1,3 +1,5 @@
+<app-image-details *ngIf="educationSelected" [education]="educationSelected" ></app-image-details>
+
 <section class="container my-5">
     <div class="card">
         <div class="card-header">
@@ -20,8 +22,8 @@
                 <tbody>
                     <tr *ngFor="let education of educationList">
                         <td>
-                            <img *ngIf="education?.image" src="{{education.image.imagenUrl}}" alt="" style="width:64px; cursor: pointer;">
-                            <span *ngIf="!education?.image">No hay imagen</span>
+                            <img *ngIf="education?.image" src="{{education.image.imagenUrl}}" alt="" style="width:64px; cursor: pointer;" (click)="openModal(education)">
+                            <span *ngIf="!education?.image" (click)="openModal(education)">No hay imagen</span>
                         </td>
                         <td >
                             {{education.name}}
