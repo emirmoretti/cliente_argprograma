@@ -17,12 +17,20 @@ export class EducationService {
 
   constructor(private http: HttpClient) { }
 
+  public getEducationById(id: any): Observable<Education> {
+    return this.http.get<Education>(`${this.apiServerUrl}/education/${id}`, { headers: this.httpHeaders })
+  }
+
   public getEducation(): Observable<Education[]> {
     return this.http.get<Education[]>(`${this.apiServerUrl}/education`, { headers: this.httpHeaders })
   }
 
   public addEducation(education: Education): Observable<Education> {
     return this.http.post<Education>(`${this.apiServerUrl}/education`, education, { headers: this.httpHeaders });
+  }
+
+  public updateEducation(education: Education): Observable<Education> {
+    return this.http.put<Education>(`${this.apiServerUrl}/education/${education.id}`, education, { headers: this.httpHeaders });
   }
 
   public delete(id: number): Observable<Education> {

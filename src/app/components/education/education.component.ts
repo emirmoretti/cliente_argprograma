@@ -24,7 +24,6 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEducations();
-
     this.imageDetailsService.notificarUpload.subscribe(education => {
       this.educationList = this.educationList?.map(educationOriginal => {
         if(education.id == educationOriginal.id){

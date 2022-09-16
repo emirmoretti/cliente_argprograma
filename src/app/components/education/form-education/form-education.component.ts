@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Education } from 'src/app/models/education';
 import { EducationService } from 'src/app/services/education.service';
 import Swal from 'sweetalert2';
@@ -13,9 +13,21 @@ export class FormEducationComponent implements OnInit {
 
   education: Education = new Education();
 
-  constructor(private educationService: EducationService, private router: Router) { }
+  constructor(private educationService: EducationService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.loadEducation();
+  }
+
+  public loadEducation(): void {
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id']
+      if (id) {
+        this.educationService.getEducationById(id).subscribe(
+          education => this.education = education
+        )
+      }
+    })
   }
 
   public createEducation(): void {
@@ -29,6 +41,20 @@ export class FormEducationComponent implements OnInit {
           icon: 'success'
         })
       }
+    )
+  }
+
+  public updateEducation(): void {
+    this.educationService.updateEducation(this.education).subscribe(
+      (json) => {
+        this.router.navigate(['/education'])
+        Swal.fire({
+          title: 'Education',
+          text: `Educación ${json.name} actualizada`,
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      },
     )
   }
 

@@ -1,9 +1,24 @@
 <section class="container">
-    <form #educationForm="ngForm">
-        <div class="mb-3">
-            <label for="name" class="form-label">Nombre educacion</label>
-            <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="education.name">
+    <form #educationForm="ngForm" class="bg-dark text-white p-5">
+        <div class="row">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre educacion</label>
+                <input type="text" class="form-control" id="name" name="name" #name="ngModel"
+                    [(ngModel)]="education.name">
+            </div>
+            <div>
+                <label>fecha de inicio</label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="education.startDate" name="startDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div>
+                <label>Fecha de fin</label>
+                <input matInput [matDatepicker]="picker2" [(ngModel)]="education.graduationDate" name="graduationDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="createEducation()">Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="createEducation()">Submit</button>
     </form>
 </section>

@@ -9,6 +9,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormEducationComponent } from './components/education/form-education/form-education.component';
 import { ImageDetailsComponent } from './components/education/image-details/image-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SkillsComponent } from './components/skills/skills.component';
+import { ImageDetailsSkillsComponent } from './components/skills/image-details-skills/image-details-skills.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +23,17 @@ import { ImageDetailsComponent } from './components/education/image-details/imag
     HeaderComponent,
     FormEducationComponent,
     ImageDetailsComponent,
+    SkillsComponent,
+    ImageDetailsSkillsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

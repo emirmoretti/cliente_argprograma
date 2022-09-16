@@ -1,5 +1,6 @@
 import { HttpEventType } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { catchError } from 'rxjs';
 import { Education } from 'src/app/models/education';
 import { EducationService } from 'src/app/services/education.service';
 import Swal from 'sweetalert2';
@@ -24,7 +25,7 @@ export class ImageDetailsComponent implements OnInit {
     this.fotoSeleccionada = $event.target.files[0];
     if (this.fotoSeleccionada.type.indexOf('image') < 0) {
       this.fotoSeleccionada = null;
-      Swal.fire('formato no aceptado', 'ingrese una imagen', 'error');
+      Swal.fire('Formato no aceptado', 'Ingrese una imagen', 'error');
     }
   }
   enviarFoto() {
@@ -38,6 +39,9 @@ export class ImageDetailsComponent implements OnInit {
           this.education = respon as Education;
           this.imageDetailsService.notificarUpload.emit(this.education);
           Swal.fire('Foto cargada', 'piola', 'success');
+        },
+        (catchError) => {
+          Swal.fire('Ocurrio un error', `no se pudo cargar la imagen`, 'warning');
         }
       )
     }
