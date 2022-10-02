@@ -1,9 +1,11 @@
-<section>
+<app-image-details-skills *ngIf="skillsSelected" [skill]="skillsSelected"></app-image-details-skills>
+<section class="container my-5">
     <div class="card">
         <div class="card-header">
             <h2>Mis skills</h2>
         </div>
         <div class="card-body">
+            <button type="button" class="btn btn-primary" [routerLink]="['/skills/form']">Agregar skills</button>
             <h3 class="card-title">Listado</h3>
             <table class="table table-hover"> 
                 <thead>
@@ -17,16 +19,17 @@
                 <tbody>
                     <tr *ngFor="let skills of skillsList">
                         <td>
-                            <img *ngIf="skills?.image" src="{{skills.image.imagenUrl}}" alt="">
+                            <img *ngIf="skills?.image" src="{{skills.image.imagenUrl}}" alt="" style="width:64px; cursor: pointer;" (click)="openModal(skills)">
+                            <span *ngIf="!skills?.image" (click)="openModal(skills)">No hay imagen</span>
                         </td>
                         <td>
                             {{skills.name}}
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary">Editar</button>
+                            <button type="button" class="btn btn-secondary" [routerLink]="['/skills/form', skills.id]">Editar</button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger">Eliminar</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteSkills(skills)">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>

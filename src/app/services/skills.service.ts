@@ -30,7 +30,7 @@ export class SkillsService {
   }
 
   public updateSkill(skills: Skills): Observable<Skills> {
-    return this.http.put<Skills>(`${this.apiServerUrl}/skillss/${skills.id}`, skills, { headers: this.httpHeaders });
+    return this.http.put<Skills>(`${this.apiServerUrl}/skills/${skills.id}`, skills, { headers: this.httpHeaders });
   }
 
   public deleteSkill(id: number): Observable<Skills> {
@@ -47,7 +47,7 @@ export class SkillsService {
     formData.append("archivo", archivo); // "archivo" mismo nombre q pusismos en el backend
     formData.append("id", id);
 
-    //const req = new HttpRequest('POST', `${this.apiServerUrl}/education/image`, formData);
+    //const req = new HttpRequest('POST', `${this.apiServerUrl}/skills/image`, formData);
     return this.http.post<HttpEvent<{}>>(`${this.apiServerUrl}/skills/image`, formData);
   }
 }

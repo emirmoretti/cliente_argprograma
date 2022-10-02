@@ -1,0 +1,28 @@
+<main class="home">
+    <app-profile></app-profile>
+    <div class="skills-section">
+        <h3 class="title-main text-center">Skills</h3>
+        <div class="row px-5">
+            <div class="col-2" *ngFor="let skill of skillsList">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img *ngIf="skill.image" src={{skill.image.imagenUrl}} alt="{{skill.name}}" class="img-fluid w-12">
+                    <img *ngIf="!skill.image" src="../../../assets/notfound.png" class="img-fluid w-12" alt="no hay imagen">
+                    <h4 class="text-capitalize">{{skill.name}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="education-container py-3">
+        <h3>Education</h3>
+        <div class="row">
+            <div class="col" *ngFor="let education of educationList">
+                <div>
+                    <img *ngIf="education.image" src="{{education.image.imagenUrl}}" alt="{{education.name}}"
+                        class="img-fluid w-12">
+                    <img *ngIf="!education.image" src="../../../assets/notfound.png" class="img-fluid w-12" alt="no hay imagen">
+                </div>
+                <p>{{education.name}}</p>
+            </div>
+        </div>
+    </div>
+</main>

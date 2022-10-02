@@ -1,2 +1,45 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<mat-toolbar>
+    responsive sidebar nav
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav">
+        <img class="avatar mat-elevation-z8" src="{{ (profile| async)?.image?.imagenUrl }}" />
+        <h4 class="name">{{ (profile | async)?.name }} {{(profile | async)?.lastName}}</h4>
+        <p class="designation">{{ (profile | async)?.title }}</p>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <!---->
+        <button class="menu-button" mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+            <span>Mi Menu</span>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-button class="menu-button" routerLinkActive="active" routerLink="/education">
+                <mat-icon>education</mat-icon>
+                <span>Mis Educaciones</span>
+            </button>
+            <button mat-button class="menu-button" routerLinkActive="active" routerLink="/skills">
+                <mat-icon>skills</mat-icon>
+                <span>Mis skills</span>
+            </button>
+        </mat-menu>
+        <!---->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

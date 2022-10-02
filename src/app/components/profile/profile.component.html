@@ -1,1 +1,83 @@
-<p *ngIf="profile">nombre {{profile.name}}</p>
+<section class="home-page">
+    <div class="container">
+        <div class="banner">
+            <div class="row">
+                <div class="col col-md-6">
+                    <div class="title">
+                        <span class="tagline">Welcome to my Portfolio</span>
+                        <h1>Hola! Soy <span class="text-capitalize">{{profile.name}} {{profile.lastName}}</span> - <span
+                                class="text-capitalize">{{profile.title}}</span></h1>
+                        <button (click)="openModal()">editar perfil</button>
+                    </div>
+                </div>
+                <div class="col col-md-6">
+                    <div>
+                        <img class="img-fluid" src="../../../assets/header-img.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section" >
+    <div class="row">
+        <div class="col-12 col-md-6 about-me">
+            <h3 class="title-main">About me</h3>
+            <p>{{profile.description}}</p>
+        </div>
+    </div>
+</section>
+
+
+
+<div *ngIf="modal" class="modal" tabindex="-1" style="display: block;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Editar perfil</h3>
+                <button type="button" (click)="closeModal()" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #profileForm="ngForm" class="bg-dark text-white p-5">
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" #name="ngModel"
+                                [(ngModel)]="profile.name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" #lastName="ngModel"
+                                [(ngModel)]="profile.lastName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Titulo</label>
+                            <input type="text" class="form-control" id="title" name="title" #title="ngModel"
+                                [(ngModel)]="profile.title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Descripcion</label>
+                            <textarea type="text" class="form-control" id="description" name="description"
+                                #description="ngModel" [(ngModel)]="profile.description"></textarea>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" (click)="updateProfile()">Editar</button>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <h3>Imagen</h3>
+                    <img *ngIf="profile.image" src="{{profile.image.imagenUrl}}" alt=""
+                        style="width:64px; cursor: pointer;">
+                    <div>
+                        <input (change)="seleccionarFoto($event)" type="file" class="form-control"
+                            aria-describedby="selectedFile" aria-label="Upload">
+                        <button (click)="enviarFoto()" class="btn btn-outline-secondary" type="button"
+                            id="inputGroupFileAddon04" [disabled]="!fotoSeleccionada">Subir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

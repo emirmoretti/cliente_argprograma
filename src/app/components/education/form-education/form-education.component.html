@@ -18,7 +18,12 @@
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
             </div>
-            <button type="submit" class="btn btn-primary" (click)="createEducation()">Submit</button>
+            <div>
+                <button *ngIf="!education.id else elseBlock" type="submit" class="btn btn-primary" (click)="createEducation()">Submit</button>
+                <ng-template #elseBlock>
+                    <button class="btn btn-primary" (click)="updateEducation()">Editar</button>
+                </ng-template>
+            </div>
         </div>
     </form>
 </section>
