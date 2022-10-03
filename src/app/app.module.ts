@@ -24,6 +24,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ProjectsFormComponent } from './components/projects/projects-form/projects-form.component';
+import { ExperienceFormComponent } from './components/experience/experience-form/experience-form.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ProjectsFormComponent } from './components/projects/projects-form/proje
     ProjectsComponent,
     ExperienceComponent,
     ProjectsFormComponent,
+    ExperienceFormComponent,
   ],
   imports: [
     BrowserModule,
