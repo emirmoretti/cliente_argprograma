@@ -26,8 +26,8 @@ export class ExperienceService {
   public createExperience(experience: Experience):Observable<Experience>{
     return this.http.post<Experience>(`${this.apiServerUrl}/experience`, experience, {headers: this.httpHeaders});
   }
-  public updateExperience(id: number, experience: Experience):Observable<Experience>{
-    return this.http.put<Experience>(`${this.apiServerUrl}/experience/${id}`, experience, {headers: this.httpHeaders})
+  public updateExperience(experience: Experience):Observable<Experience>{
+    return this.http.put<Experience>(`${this.apiServerUrl}/experience/${experience.id}`, experience, {headers: this.httpHeaders})
   }
   public deleteExperience(id: number):Observable<Experience>{
     return this.http.delete<Experience>(`${this.apiServerUrl}/experience/${id}`, {headers: this.httpHeaders})

@@ -20,11 +20,11 @@ export class ProfileService {
   private sharingObservablePrivate: BehaviorSubject<Profile> = new BehaviorSubject<Profile>(new Profile);
 
 
-  get SharingObservable(){
+  get SharingObservable() {
     return this.sharingObservablePrivate.asObservable();
   }
 
-  set sharingObservableData(profile: Profile){
+  set sharingObservableData(profile: Profile) {
     this.sharingObservablePrivate.next(profile);
   }
 
@@ -36,6 +36,9 @@ export class ProfileService {
 
   public getProfile(): Observable<Profile> {
     return this.http.get<Profile>(`${this.apiServerUrl}/profile`);
+  }
+  public saveProfile(profile: Profile): Observable<Profile> {
+    return this.http.post<Profile>(`${this.apiServerUrl}/profile`, profile, { headers: this.httpHeaders })
   }
   public update(profile: Profile): Observable<Profile> {
     return this.http.put<Profile>(`${this.apiServerUrl}/profile`, profile, { headers: this.httpHeaders });

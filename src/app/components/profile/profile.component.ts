@@ -1,12 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Education } from 'src/app/models/education';
 import { Profile } from 'src/app/models/profile';
-import { Skills } from 'src/app/models/skills';
-import { EducationService } from 'src/app/services/education.service';
 import { ProfileService } from 'src/app/services/profile.service';
-import { SkillsService } from 'src/app/services/skills.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,53 +13,41 @@ export class ProfileComponent implements OnInit {
 
   public profile: Profile = new Profile();
 
-  public educationList: Education[] = [];
-  
-  public skillsList: Skills[] = [];
-
   modal: boolean = false;
 
   fotoSeleccionada: File | any;
 
   constructor(
-    private profileService: ProfileService, 
-    private educationService: EducationService,
-    private skillService: SkillsService
-    ) { }
+    private profileService: ProfileService,
+  ) { }
 
   ngOnInit(): void {
     this.getProfile();
-    this.getEducationList();
-    this.getSkillsList();
-  }
-
-  public getSkillsList(): void {
-    this.skillService.getSkills().subscribe({
-      next: (response: Skills[]) => {
-        this.skillsList = response;
-      }
-    })
-  }
-
-  public getEducationList(): void {
-    this.educationService.getEducation().subscribe({
-      next: (response: Education[]) => {
-        this.educationList = response;
-      }
-    })
   }
 
   public getProfile(): void {
     this.profileService.getProfile().subscribe(
       {
         next: (response: Profile) => {
-          this.profile = response;
-          this.profileService.sharingObservableData = this.profile;
+          if (response) {
+            this.profile = response;
+            this.profileService.sharingObservableData = this.profile;
+          }
         },
         error: (error: HttpErrorResponse) => {
           alert(error.message);
         }
       })
+  }
+
+  public createProfile(): void {
+    this.profileService.saveProfile(this.profile).subscribe({
+      next: (resp: Profile) => {
+        this.profile = resp;
+        Swal.fire('perfil creado', `${resp.name}`, 'success');
+        this.closeModal();
+      }
+    })
   }
 
   public updateProfile(): void {

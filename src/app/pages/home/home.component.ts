@@ -12,7 +12,7 @@ import { SkillsService } from 'src/app/services/skills.service';
 export class HomeComponent implements OnInit {
 
   public educationList: Education[] = [];
-  
+
   public skillsList: Skills[] = [];
 
   constructor(
@@ -28,7 +28,12 @@ export class HomeComponent implements OnInit {
   public getSkillsList(): void {
     this.skillService.getSkills().subscribe({
       next: (response: Skills[]) => {
-        this.skillsList = response;
+        if (response) {
+          this.skillsList = response
+        }
+      },
+      error: (err) => {
+        console.log(err)
       }
     })
   }
@@ -36,7 +41,10 @@ export class HomeComponent implements OnInit {
   public getEducationList(): void {
     this.educationService.getEducation().subscribe({
       next: (response: Education[]) => {
-        this.educationList = response;
+        if (response) this.educationList = response;
+      },
+      error: (err) => {
+        console.log(err)
       }
     })
   }
