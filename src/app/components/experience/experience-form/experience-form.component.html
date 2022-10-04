@@ -1,1 +1,30 @@
-<p>experience-form works!</p>
+<section>
+    <div class="form-container bg-white">
+        <form #projectForm="ngForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre de la empresa</label>
+                <input name="name" type="text" class="form-control"
+                    id="name" aria-describedby="emailHelp">
+            </div>
+            <div>
+                <label>Fecha de realizacion</label>
+                <input matInput [matDatepicker]="picker" name="startDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div>
+                <label>Fecha de realizacion</label>
+                <input matInput [matDatepicker]="picker" name="graduationDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </div>
+            <div>
+                <button  type="submit" class="btn btn-primary"
+                    >Submit</button>
+                <ng-template #elseBlock>
+                    <button class="btn btn-primary">Editar</button>
+                </ng-template>
+            </div>
+        </form>
+    </div>
+</section>

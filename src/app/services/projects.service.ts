@@ -2,7 +2,7 @@ import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Project } from '../models/project';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,20 +21,20 @@ export class ProjectsService {
     return this.http.get<Project>(`${this.apiServerUrl}/projects/${id}`, { headers: this.httpHeaders })
   }
 
-  public getEducation(): Observable<Project[]> {
+  public getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.apiServerUrl}/projects`, { headers: this.httpHeaders })
   }
 
-  public addEducation(project: Project): Observable<Project> {
+  public addProject(project: Project): Observable<Project> {
     return this.http.post<Project>(`${this.apiServerUrl}/projects`, project, { headers: this.httpHeaders });
   }
 
-  public updateEducation(project: Project): Observable<Project> {
+  public updateProject(project: Project): Observable<Project> {
     return this.http.put<Project>(`${this.apiServerUrl}/projects/${project.id}`, project, { headers: this.httpHeaders });
   }
 
   public delete(id: number): Observable<Project> {
-    return this.http.delete<Project>(`${this.apiServerUrl}/projects/${id}`)
+    return this.http.delete<Project>(`${this.apiServerUrl}/projects/${id}`, {headers: this.httpHeaders})
   }
 
   public subirFoto(archivo: File, id: any): Observable<HttpEvent<{}>> {
@@ -42,7 +42,7 @@ export class ProjectsService {
     formData.append("archivo", archivo); // "archivo" mismo nombre q pusismos en el backend
     formData.append("id", id);
     //const req = new HttpRequest('POST', `${this.apiServerUrl}/education/image`, formData);
-    return this.http.post<HttpEvent<{}>>(`${this.apiServerUrl}/education/image`, formData);
+    return this.http.post<HttpEvent<{}>>(`${this.apiServerUrl}/projects/image`, formData);
   }
   
 }

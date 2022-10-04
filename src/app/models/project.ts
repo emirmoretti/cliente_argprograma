@@ -1,11 +1,11 @@
 import { Image } from "./image";
 
-export interface Project {
-    id: number,
-    name: string,
-    description: string,
-    urlRepo: string,
-    urlDemo: string,
-    Image: Image,
-    startDate: Date
+export class Project {
+    "id": number
+    "name": string
+    "description": string
+    "urlRepo": string
+    "urlDemo": string
+    "image": Image
+    "startDate": Date
 }
