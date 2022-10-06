@@ -4,14 +4,18 @@ import { EducationComponent } from './components/education/education.component';
 import { FormEducationComponent } from './components/education/form-education/form-education.component';
 import { ExperienceFormComponent } from './components/experience/experience-form/experience-form.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { LoginComponent } from './components/login/login.component';
 import { ProjectsFormComponent } from './components/projects/projects-form/projects-form.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { RegisterComponent } from './components/register/register.component';
 import { FormSkillsComponent } from './components/skills/form-skills/form-skills.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'education', component: EducationComponent},
   {path: 'education/form', component: FormEducationComponent},
   {path: 'education/form/:id', component: FormEducationComponent},

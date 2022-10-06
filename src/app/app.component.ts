@@ -5,6 +5,8 @@ import { ProfileService } from './services/profile.service';
 import { Profile } from './models/profile';
 import { Observable } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { StorageService } from './services/storage.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -16,17 +18,37 @@ export class AppComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  title = 'app-argprograma';
-
   public profile: Observable<Profile>;
+  
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  username?: string;
 
   constructor(
+    private storageService: StorageService,
+    private authService: AuthService,
     private observer: BreakpointObserver,
     private profileService: ProfileService,
     private cd: ChangeDetectorRef
   ) { this.profile = this.profileService.SharingObservable; }
 
   ngOnInit(): void {
+
+    this.isLoggedIn = this.storageService.isLoggedIn();
+
+    if (this.isLoggedIn) {
+      const user = this.storageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+
+      this.username = user.username;
+    }
+
+
     this.getProfile();
   }
 
@@ -55,4 +77,17 @@ export class AppComponent {
     this.cd.detectChanges();
   }
 
+  logout(): void {
+    this.authService.logout().subscribe({
+      next: res => {
+        console.log(res);
+        this.storageService.clean();
+
+        window.location.reload();
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
 }

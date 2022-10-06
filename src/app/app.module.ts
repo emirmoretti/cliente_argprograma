@@ -25,6 +25,9 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ProjectsFormComponent } from './components/projects/projects-form/projects-form.component';
 import { ExperienceFormComponent } from './components/experience/experience-form/experience-form.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { httpInterceptorProviders } from './helpers/http.interceptor';
 
 
 @NgModule({
@@ -42,6 +45,8 @@ import { ExperienceFormComponent } from './components/experience/experience-form
     ExperienceComponent,
     ProjectsFormComponent,
     ExperienceFormComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,7 @@ import { ExperienceFormComponent } from './components/experience/experience-form
     MatDividerModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
