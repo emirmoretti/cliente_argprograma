@@ -44,22 +44,22 @@
                         <div class="mb-3">
                             <label for="name" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="name" name="name" #name="ngModel"
-                                [(ngModel)]="profile.name">
+                                [(ngModel)]="profile.name" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="lastName" class="form-label">Apellido</label>
                             <input type="text" class="form-control" id="lastName" name="lastName" #lastName="ngModel"
-                                [(ngModel)]="profile.lastName">
+                                [(ngModel)]="profile.lastName" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Titulo</label>
                             <input type="text" class="form-control" id="title" name="title" #title="ngModel"
-                                [(ngModel)]="profile.title">
+                                [(ngModel)]="profile.title" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Descripcion</label>
                             <textarea type="text" class="form-control" id="description" name="description"
-                                #description="ngModel" [(ngModel)]="profile.description"></textarea>
+                                #description="ngModel" [(ngModel)]="profile.description" autocomplete="off"></textarea>
                         </div>
                         <div>
                             <button *ngIf="!profile.id else elseBlock" class="btn btn-primary" (click)="createProfile()">Crear</button>

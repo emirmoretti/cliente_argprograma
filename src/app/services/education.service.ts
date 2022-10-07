@@ -46,8 +46,6 @@ export class EducationService {
     let formData = new FormData();
     formData.append("archivo", archivo); // "archivo" mismo nombre q pusismos en el backend
     formData.append("id", id);
-
-    //const req = new HttpRequest('POST', `${this.apiServerUrl}/education/image`, formData);
     return this.http.post<HttpEvent<{}>>(`${this.apiServerUrl}/education/image`, formData);
   }
 }
