@@ -10,24 +10,24 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormSkillsComponent } from './components/skills/form-skills/form-skills.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { VigilanteGuard } from './guards/vigilante.guard';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'education', component: EducationComponent},
-  {path: 'education/form', component: FormEducationComponent},
-  {path: 'education/form/:id', component: FormEducationComponent},
-  {path: 'skills', component: SkillsComponent},
-  {path: 'skills/form', component: FormSkillsComponent},
-  {path: 'skills/form/:id', component: FormSkillsComponent},
-  {path: 'projects', component: ProjectsComponent},
-  {path: 'projects/form', component: ProjectsFormComponent},
-  {path: 'projects/form/:id', component: ProjectsFormComponent},
-  {path: 'experience', component: ExperienceComponent},
-  {path: 'experience/form', component: ExperienceFormComponent},
-  {path: 'experience/form/:id', component: ExperienceFormComponent},
+  {path: 'education', component: EducationComponent, canActivate: [VigilanteGuard]},
+  {path: 'education/form', component: FormEducationComponent,  canActivate: [VigilanteGuard]},
+  {path: 'education/form/:id', component: FormEducationComponent,  canActivate: [VigilanteGuard]},
+  {path: 'skills', component: SkillsComponent,  canActivate: [VigilanteGuard]},
+  {path: 'skills/form', component: FormSkillsComponent,  canActivate: [VigilanteGuard]},
+  {path: 'skills/form/:id', component: FormSkillsComponent,  canActivate: [VigilanteGuard]},
+  {path: 'projects', component: ProjectsComponent,  canActivate: [VigilanteGuard]},
+  {path: 'projects/form', component: ProjectsFormComponent,  canActivate: [VigilanteGuard]},
+  {path: 'projects/form/:id', component: ProjectsFormComponent,  canActivate: [VigilanteGuard]},
+  {path: 'experience', component: ExperienceComponent,  canActivate: [VigilanteGuard]},
+  {path: 'experience/form', component: ExperienceFormComponent,  canActivate: [VigilanteGuard]},
+  {path: 'experience/form/:id', component: ExperienceFormComponent ,  canActivate: [VigilanteGuard]},
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@
                         <span class="tagline">Welcome to my Portfolio</span>
                         <h1>Hola! Soy <span class="text-capitalize">{{profile.name}} {{profile.lastName}}</span> - <span
                                 class="text-capitalize">{{profile.title}}</span></h1>
-                        <button (click)="openModal()">{{profile.id == null ? 'crear': 'editar'}} perfil</button>
+                        <button (click)="openModal()" *ngIf="isLogged"> {{profile.id == null ? 'crear': 'editar'}} perfil</button>
                     </div>
                 </div>
                 <div class="col col-md-6">

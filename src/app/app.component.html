@@ -20,16 +20,17 @@
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
-        <button mat-button class="menu-button" routerLink="/register">
-            <mat-icon>home</mat-icon>
-            <span>Register</span>
-        </button>
-        <button mat-button class="menu-button" routerLink="/login">
-            <mat-icon>home</mat-icon>
+        <button mat-button class="menu-button" routerLink="/login" *ngIf="!isLoggedIn">
+            <mat-icon>account_box</mat-icon>
             <span>Login</span>
         </button>
+        <button mat-button class="menu-button" *ngIf="isLoggedIn" (click)="logout()">
+            <mat-icon>clear</mat-icon>
+            <span>Logout</span>
+        </button>
+        <p>{{username}}</p>
         <!---->
-        <button class="menu-button" mat-button [matMenuTriggerFor]="menu">
+        <button class="menu-button" mat-button [matMenuTriggerFor]="menu" *ngIf="isLoggedIn && ((profile | async)?.id != null)">
             <mat-icon>menu</mat-icon>
             <span>Mi Menu</span>
         </button>

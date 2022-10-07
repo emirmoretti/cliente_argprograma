@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
+import { StorageService } from 'src/app/services/storage.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,12 +18,16 @@ export class ProfileComponent implements OnInit {
 
   fotoSeleccionada: File | any;
 
+  isLogged: boolean = false;
+
   constructor(
     private profileService: ProfileService,
+    private storage: StorageService
   ) { }
 
   ngOnInit(): void {
     this.getProfile();
+    this.isLogged = this.storage.isLoggedIn();
   }
 
   public getProfile(): void {
@@ -46,6 +51,7 @@ export class ProfileComponent implements OnInit {
         this.profile = resp;
         Swal.fire('perfil creado', `${resp.name}`, 'success');
         this.closeModal();
+        window.location.reload();
       }
     })
   }
