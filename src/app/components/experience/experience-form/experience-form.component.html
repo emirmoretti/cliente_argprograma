@@ -1,28 +1,32 @@
 <section>
-    <div class="form-container bg-dark">
-        <form #projectForm="ngForm">
+    <div class="my-5">
+        <form #projectForm="ngForm" class="p-5 form-box">
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre de la empresa</label>
                 <input name="name" type="text" [(ngModel)]="experience.name" class="form-control"
                     id="name" aria-describedby="nameHelp" autocomplete="off">
             </div>
-            <div>
-                <label>Fecha de realizacion</label>
-                <input matInput [matDatepicker]="picker" name="startDate" [(ngModel)]="experience.startDate">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+            <div class="mb-3">
+                <label class="form-label">Fecha inicial</label>
+                <div class="input-group">
+                    <input matInput [matDatepicker]="picker" name="startDate" [(ngModel)]="experience.startDate" class="form-control">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha final</label>
+                <div class="input-group">
+                    <input class="form-control" matInput [matDatepicker]="picker2" name="graduationDate" [(ngModel)]="experience.graduationDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </div>
             </div>
             <div>
-                <label>Fecha de realizacion</label>
-                <input matInput [matDatepicker]="picker2" name="graduationDate" [(ngModel)]="experience.graduationDate">
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-            </div>
-            <div>
-                <button *ngIf="!experience.id else elseBlock" type="submit" class="btn btn-primary" (click)="addExp()"
-                    >Submit</button>
+                <button *ngIf="!experience.id else elseBlock" type="submit" class="button-30" (click)="addExp()"
+                    >Crear</button>
                 <ng-template #elseBlock>
-                    <button class="btn btn-primary" (click)="updateExp()">Editar</button>
+                    <button class="button-30" (click)="updateExp()">Editar</button>
                 </ng-template>
             </div>
         </form>

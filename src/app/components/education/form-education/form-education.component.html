@@ -1,29 +1,39 @@
-<section class="container">
-    <form #educationForm="ngForm" class="bg-dark text-white p-5">
-        <div class="row">
-            <div class="mb-3">
-                <label for="name" class="form-label">Nombre educacion</label>
-                <input type="text" class="form-control" id="name" name="name" #name="ngModel"
-                    [(ngModel)]="education.name" autocomplete="off">
-            </div>
-            <div>
-                <label>Fecha Inicial</label>
-                <input matInput [matDatepicker]="picker" [(ngModel)]="education.startDate" name="startDate">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </div>
-            <div>
-                <label>Fecha Final</label>
-                <input matInput [matDatepicker]="picker2" [(ngModel)]="education.graduationDate" name="graduationDate">
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-            </div>
-            <div>
-                <button *ngIf="!education.id else elseBlock" type="submit" class="btn btn-primary" (click)="createEducation()">Enviar</button>
-                <ng-template #elseBlock>
-                    <button class="btn btn-primary" (click)="updateEducation()">Editar</button>
-                </ng-template>
-            </div>
+<section class="py-5">
+    <div class="row justify-content-center">
+        <div class="col col-md-6">
+            <form #educationForm="ngForm" class="form-box p-5">
+                <div class="row">
+                    <div>
+                        <label for="name" class="form-label mb-3">Nombre educacion</label>
+                        <input type="text" class="form-control mb-3" id="name" name="name" #name="ngModel"
+                            [(ngModel)]="education.name" autocomplete="off">
+                    </div>
+                    <div>
+                        <label class="form-label mb-3">Fecha Inicial</label>
+                        <div class="input-group mb-3">
+                            <input matInput [matDatepicker]="picker" [(ngModel)]="education.startDate" name="startDate" class="form-control">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label mb-3">Fecha Final</label>
+                        <div class="input-group mb-3">
+                            <input matInput [matDatepicker]="picker2" [(ngModel)]="education.graduationDate"
+                                name="graduationDate" class="form-control">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </div>
+                    </div>
+                    <div>
+                        <button *ngIf="!education.id else elseBlock" type="submit" class="button-30"
+                            (click)="createEducation()">Crear</button>
+                        <ng-template #elseBlock>
+                            <button class="button-30" (click)="updateEducation()">Editar</button>
+                        </ng-template>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </section>

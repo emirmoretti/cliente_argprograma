@@ -1,14 +1,14 @@
-<section class="container">
-    <form #skillsForm="ngForm" class="bg-dark text-white p-5">
+<section class="container py-5">
+    <form #skillsForm="ngForm" class="form-box text-white mt-5 p-5">
         <div class="row">
             <div class="mb-3">
-                <label for="name" class="form-label">Nombre skills</label>
+                <label for="name" class="form-label mb-3">Nombre skills</label>
                 <input type="text" class="form-control" id="name" name="name" #name="ngModel" autocomplete="off" [(ngModel)]="skills.name">
             </div>
             <div>
-                <button *ngIf="!skills.id else elseBlock" type="submit" class="btn btn-primary" (click)="createSkills()">Crear</button>
+                <button *ngIf="!skills.id else elseBlock" type="submit" class="button-30" (click)="createSkills()">Crear</button>
                 <ng-template #elseBlock>
-                    <button class="btn btn-primary" (click)="updateSkills()">Editar</button>
+                    <button class="button-30" (click)="updateSkills()">Editar</button>
                 </ng-template>
             </div>
         </div>

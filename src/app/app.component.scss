@@ -54,6 +54,7 @@ mat-divider {
     align-items: center;
     justify-content: flex-start;
     font-size: 1rem;
+
     mat-icon {
         margin-right: 8px;
     }
@@ -63,10 +64,13 @@ mat-divider {
     display: flex;
     flex-direction: column;
     height: 100%;
+
     img {
         align-self: center;
     }
+
     .user-welcome {
         margin-top: auto;
     }
 }
+
