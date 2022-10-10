@@ -1,12 +1,12 @@
-<section class="experience-section">
-    <div class="table-container bg-white">
+<section class="experience-section py-5">
+    <div class="table-container card-black">
         <div class="py-2">
           <button class="btn btn-primary" [routerLink]="['/experience/form']">
             Agregar Experiencia
           </button>
         </div>
         <table class="table">
-            <thead>
+            <thead class="thead">
               <tr>
                 <th scope="col">Puesto</th>
                 <th scope="col">Fecha inicial</th>
@@ -15,7 +15,7 @@
                 <th scope="col">Eliminar</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="text-white">
               <tr *ngFor="let experience of experienceList">
                 <td>{{experience.name}}</td>
                 <td>{{experience.startDate}}</td>

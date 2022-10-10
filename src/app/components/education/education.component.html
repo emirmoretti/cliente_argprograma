@@ -1,54 +1,47 @@
-<app-image-details *ngIf="educationSelected" [education]="educationSelected" ></app-image-details>
+<app-image-details *ngIf="educationSelected" [education]="educationSelected"></app-image-details>
 
 <section class="container my-5">
-    <div class="card">
-        <div class="card-header">
-            <h3>Mis educaciones</h3>
-        </div>
-        <div class="card-body">
-            <h3 class="card-title">Listado</h3>
-            <button type="button" class="btn btn-primary" [routerLink]="['/education/form']">Agregar educación</button>
-            <table class="table table-hover" *ngIf="educationList != undefined && educationList.length > 0">
-                <thead>
-                    <tr>
-                      <th scope="col">Imagen</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Fecha de inicio</th>
-                      <th scope="col">Fecha de finalizacion</th>
-                      <th scope="col">Editar</th>
-                      <th scope="col">Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let education of educationList">
-                        <td>
-                            <img *ngIf="education?.image" src="{{education.image.imagenUrl}}" alt="" style="width:64px; cursor: pointer;" (click)="openModal(education)">
-                            <span *ngIf="!education?.image" (click)="openModal(education)">No hay imagen</span>
-                        </td>
-                        <td >
-                            {{education.name}}
-                        </td>
-                        <td >
-                            {{education.startDate}}
-                        </td>
-                        <td >
-                            {{education.graduationDate}}
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-primary" [routerLink]="['/education/form', education.id]">
-                                Editar
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" (click)="deleteEducation(education)" class="btn btn-danger">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        
+    <div class="card-black">
+        <button type="button" class="btn btn-primary" [routerLink]="['/education/form']">Agregar educación</button>
+        <table class="table table-hover">
+            <thead class="thead">
+                <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha de inicio</th>
+                    <th scope="col">Fecha de finalizacion</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="educationList != undefined && educationList.length > 0">
+                <tr *ngFor="let education of educationList">
+                    <td>
+                        <img *ngIf="education?.image" src="{{education.image.imagenUrl}}" alt=""
+                            style="width:64px; cursor: pointer;" (click)="openModal(education)">
+                        <span *ngIf="!education?.image" (click)="openModal(education)">No hay imagen</span>
+                    </td>
+                    <td>
+                        {{education.name}}
+                    </td>
+                    <td>
+                        {{education.startDate}}
+                    </td>
+                    <td>
+                        {{education.graduationDate}}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" [routerLink]="['/education/form', education.id]">
+                            Editar
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" (click)="deleteEducation(education)" class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>

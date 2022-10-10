@@ -22,18 +22,6 @@
             margin-bottom: 16px;
             display: inline-block;
         }
-
-        button {
-            color: #fff;
-            font-weight: 700;
-            font-size: 20px;
-            margin-top: 60px;
-            letter-spacing: 0.8px;
-            display: flex;
-            align-items: center;
-            border: 0;
-            background-color: transparent;
-        }
     }
 }
 
@@ -63,6 +51,36 @@
             letter-spacing: 0.8px;
             line-height: 1.5em;
             width: 96%;
+        }
+    }
+}
+
+.modal {
+    margin-top: 15vmin;
+    .modal-content {
+        background: rgba(255,255,255,0.5);
+        -webkit-backdrop-filter: blur(30px);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+        p,
+        label {
+            color: white;
+        }
+        .title-modal {
+            margin: 20px;
+            h3{
+                font-size: 2rem;
+            }
+        }
+        .modal-body {
+            .img-container {
+                .img-section {
+                    height: 100%;
+                    .img-input {
+                        margin-top: auto;
+                    }
+                }
+            }
         }
     }
 }

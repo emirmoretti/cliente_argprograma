@@ -1,12 +1,11 @@
 mat-toolbar {
-    background-color: black;
+    background-color: #1c2135;
 }
 
 mat-sidenav {
-    margin: 16px;
     width: 200px;
     border-right: none;
-    background-color: #002b5c;
+    background-color: #8c3697d8;
     color: white;
     text-align: center;
 }
@@ -60,3 +59,14 @@ mat-divider {
     }
 }
 
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    img {
+        align-self: center;
+    }
+    .user-welcome {
+        margin-top: auto;
+    }
+}

@@ -77,6 +77,7 @@ export class ProfileComponent implements OnInit {
   }
 
   public closeModal(): void {
+    this.fotoSeleccionada = null;
     this.modal = false;
   }
 

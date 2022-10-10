@@ -1,5 +1,7 @@
-<mat-toolbar>
-    responsive sidebar nav
+<mat-toolbar class="d-flex justify-content-between">
+    <span>
+        EM
+    </span>
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
             menu
@@ -12,47 +14,54 @@
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav">
-        <img class="avatar mat-elevation-z8" src="{{ (profile| async)?.image?.imagenUrl }}" />
-        <h4 class="name">{{ (profile | async)?.name }} {{(profile | async)?.lastName}}</h4>
-        <p class="designation">{{ (profile | async)?.title }}</p>
-        <mat-divider></mat-divider>
-        <button mat-button class="menu-button" routerLink="/">
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
-        </button>
-        <button mat-button class="menu-button" routerLink="/login" *ngIf="!isLoggedIn">
-            <mat-icon>account_box</mat-icon>
-            <span>Login</span>
-        </button>
-        <button mat-button class="menu-button" *ngIf="isLoggedIn" (click)="logout()">
-            <mat-icon>clear</mat-icon>
-            <span>Logout</span>
-        </button>
-        <p>{{username}}</p>
-        <!---->
-        <button class="menu-button" mat-button [matMenuTriggerFor]="menu" *ngIf="isLoggedIn && ((profile | async)?.id != null)">
-            <mat-icon>menu</mat-icon>
-            <span>Mi Menu</span>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-button class="menu-button" routerLinkActive="active" routerLink="/education">
-                <mat-icon>school</mat-icon>
-                <span>Mis Educaciones</span>
+        <div class="nav-container">
+            <img class="avatar mat-elevation-z8" src="{{ (profile| async)?.image?.imagenUrl }}" />
+            <h4 class="name">{{ (profile | async)?.name }} {{(profile | async)?.lastName}}</h4>
+            <p class="designation">{{ (profile | async)?.title }}</p>
+            <mat-divider></mat-divider>
+            <button mat-button class="menu-button" routerLink="/">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
             </button>
-            <button mat-button class="menu-button" routerLinkActive="active" routerLink="/skills">
-                <mat-icon>bar_chart</mat-icon>
-                <span>Mis skills</span>
+            <button mat-button class="menu-button" routerLink="/login" *ngIf="!isLoggedIn">
+                <mat-icon>account_box</mat-icon>
+                <span>Login</span>
             </button>
-            <button mat-button class="menu-button" routerLinkActive="active" routerLink="/projects">
-                <mat-icon>folder</mat-icon>
-                <span>Mis projectos</span>
+
+            <!---->
+            <button class="menu-button" mat-button [matMenuTriggerFor]="menu"
+                *ngIf="isLoggedIn && ((profile | async)?.id != null)">
+                <mat-icon>menu</mat-icon>
+                <span>Mi Menu</span>
             </button>
-            <button mat-button class="menu-button" routerLinkActive="active" routerLink="/experience">
-                <mat-icon>business_center</mat-icon>
-                <span>Mis experiencias</span>
+            <mat-menu #menu="matMenu">
+                <button mat-button class="menu-button" routerLinkActive="active" routerLink="/education">
+                    <mat-icon>school</mat-icon>
+                    <span>Mis Educaciones</span>
+                </button>
+                <button mat-button class="menu-button" routerLinkActive="active" routerLink="/skills">
+                    <mat-icon>bar_chart</mat-icon>
+                    <span>Mis skills</span>
+                </button>
+                <button mat-button class="menu-button" routerLinkActive="active" routerLink="/projects">
+                    <mat-icon>folder</mat-icon>
+                    <span>Mis projectos</span>
+                </button>
+                <button mat-button class="menu-button" routerLinkActive="active" routerLink="/experience">
+                    <mat-icon>business_center</mat-icon>
+                    <span>Mis experiencias</span>
+                </button>
+            </mat-menu>
+            <button mat-button class="menu-button" *ngIf="isLoggedIn" (click)="logout()">
+                <mat-icon>clear</mat-icon>
+                <span>Logout</span>
             </button>
-        </mat-menu>
-        <!---->
+            <mat-divider></mat-divider>
+            <div class="user-welcome" *ngIf="isLoggedIn">
+                <p>Bienvenido <br> {{username}}!</p>
+            </div>
+            <!---->
+        </div>
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="content">
