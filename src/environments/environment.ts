@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  apiBaseUrl: 'https://emirmoretti.azurewebsites.net'
-  //apiBaseDeploy: 'https://emirmoretti.azurewebsites.net', 'http://localhost:8080'
+  production: false,
+  apiBaseUrl: 'http://localhost:8080'
+  //apiBaseDeploy: 'https://emirmoretti.azurewebsites.net', 
 };
 
 /*
