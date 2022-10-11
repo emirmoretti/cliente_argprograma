@@ -150,3 +150,12 @@ input:-webkit-autofill:active {
     border: 1px solid rgba(255,255,255,0.225);
     border-radius: 20px;
 }
+
+.tbody {
+    tr {
+        td {
+            color: white;
+            font-size: 1rem;
+        }
+    }
+}

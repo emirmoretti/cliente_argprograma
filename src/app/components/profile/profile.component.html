@@ -7,7 +7,7 @@
                         <span class="tagline">Welcome to my Portfolio</span>
                         <h1>Hola! Soy <span class="text-capitalize">{{profile.name}} {{profile.lastName}}</span> - <span
                                 class="text-capitalize">{{profile.title}}</span></h1>
-                        <p>
+                        <p class="fs-4 lh-sm mb-5">
                             {{profile.description}}
                         </p>
                         <button class="button-30" (click)="openModal()" *ngIf="isLogged"> {{profile.id == null ?
@@ -24,16 +24,6 @@
         </div>
     </div>
 </section>
-<section class="about-section">
-    <div class="row">
-        <div class="col-12 col-md-6 about-me">
-            <h3 class="title-main">About me</h3>
-            <p>{{profile.description}}</p>
-        </div>
-    </div>
-</section>
-
-
 
 <div *ngIf="modal" class="modal" tabindex="-1" style="display: block;">
     <div class="modal-dialog modal-lg">

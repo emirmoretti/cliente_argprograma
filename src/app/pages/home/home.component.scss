@@ -1,0 +1,19 @@
+.card {
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    max-width: 150px;
+    margin: 12px;
+    transition: .15s all ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+    h4 {
+        text-decoration: none;
+        padding: 12px;
+        color: #03A9F4;
+        font-size: 24px;
+    }
+    img {
+        width: 100%;
+        padding: 20px;
+    }
+}

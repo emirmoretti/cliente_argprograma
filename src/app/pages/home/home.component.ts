@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education';
+import { Project } from 'src/app/models/project';
 import { Skills } from 'src/app/models/skills';
 import { EducationService } from 'src/app/services/education.service';
+import { ProjectsService } from 'src/app/services/projects.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
@@ -15,14 +17,18 @@ export class HomeComponent implements OnInit {
 
   public skillsList: Skills[] = [];
 
+  public projectList: Project[] = [];
+
   constructor(
     private educationService: EducationService,
-    private skillService: SkillsService
+    private skillService: SkillsService,
+    private projectService: ProjectsService
   ) { }
 
   ngOnInit(): void {
     this.getEducationList();
     this.getSkillsList();
+    this.getProjectList();
   }
 
   public getSkillsList(): void {
@@ -45,6 +51,17 @@ export class HomeComponent implements OnInit {
       },
       error: (err) => {
         console.log(err)
+      }
+    })
+  }
+
+  public getProjectList(): void {
+    this.projectService.getProjects().subscribe({
+      next: (resp: Project[]) => {
+        if (resp) this.projectList = resp;
+      },
+      error: (err) => {
+        console.log(err);
       }
     })
   }

@@ -3,7 +3,7 @@
 <section class="container my-5">
     <div class="card-black">
         <button type="button" class="btn btn-primary" [routerLink]="['/education/form']">Agregar educación</button>
-        <table class="table table-hover">
+        <table class="table">
             <thead class="thead">
                 <tr>
                     <th scope="col">Imagen</th>
@@ -14,12 +14,12 @@
                     <th scope="col">Eliminar</th>
                 </tr>
             </thead>
-            <tbody *ngIf="educationList != undefined && educationList.length > 0">
+            <tbody class="tbody" *ngIf="educationList != undefined && educationList.length > 0">
                 <tr *ngFor="let education of educationList">
                     <td>
                         <img *ngIf="education?.image" src="{{education.image.imagenUrl}}" alt=""
                             style="width:64px; cursor: pointer;" (click)="openModal(education)">
-                        <span *ngIf="!education?.image" (click)="openModal(education)">No hay imagen</span>
+                        <span *ngIf="!education?.image" (click)="openModal(education)" style="cursor:pointer">Ingrese una imagen aquí.</span>
                     </td>
                     <td>
                         {{education.name}}
