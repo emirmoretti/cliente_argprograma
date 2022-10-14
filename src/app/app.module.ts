@@ -28,6 +28,7 @@ import { ExperienceFormComponent } from './components/experience/experience-form
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { httpInterceptorProviders } from './helpers/http.interceptor';
+import { SpinnerModule } from './components/spinner/spinner.module';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,
+    SpinnerModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

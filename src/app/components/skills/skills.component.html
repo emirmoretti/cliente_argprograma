@@ -11,12 +11,12 @@
                     <th scope="col">Eliminar</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tbody">
                 <tr *ngFor="let skills of skillsList">
                     <td>
                         <img *ngIf="skills?.image" src="{{skills.image.imagenUrl}}" alt=""
-                            style="width:64px; cursor: pointer;" (click)="openModal(skills)">
-                        <span *ngIf="!skills?.image" (click)="openModal(skills)">No hay imagen</span>
+                            style="width:40px; cursor: pointer;" (click)="openModal(skills)">
+                        <button *ngIf="!skills?.image" (click)="openModal(skills)" class="button-30">Ingrese imagen</button>
                     </td>
                     <td>
                         {{skills.name}}

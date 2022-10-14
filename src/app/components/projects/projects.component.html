@@ -17,10 +17,10 @@
                 <th scope="col">Eliminar</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="tbody">
               <tr *ngFor="let project of projectList">
                 <td>
-                  <img *ngIf="project.image" src="{{project.image.imagenUrl}}" alt="" style="width:64px;">
+                  <img *ngIf="project.image" src="{{project.image.imagenUrl}}" alt="" style="width: 40px;">
                 </td>
                 <td>{{project.name}}</td>
                 <td>{{project.description}}</td>
