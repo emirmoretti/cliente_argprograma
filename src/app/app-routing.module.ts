@@ -11,10 +11,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormSkillsComponent } from './components/skills/form-skills/form-skills.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { VigilanteGuard } from './guards/vigilante.guard';
+import { EducationpageComponent } from './pages/educationpage/educationpage.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProjectspageComponent } from './pages/projectspage/projectspage.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'my-projects', component: ProjectspageComponent},
+  {path: 'my-educations', component: EducationpageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'education', component: EducationComponent, canActivate: [VigilanteGuard]},
   {path: 'education/form', component: FormEducationComponent,  canActivate: [VigilanteGuard]},

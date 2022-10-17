@@ -3,7 +3,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { ProfileService } from './services/profile.service';
 import { Profile } from './models/profile';
-import { Observable } from 'rxjs';
+import { Observable, EMPTY, isEmpty } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from './services/storage.service';
 import { AuthService } from './services/auth.service';
@@ -19,7 +19,7 @@ export class AppComponent {
   sidenav!: MatSidenav;
 
   public profile: Observable<Profile>;
-  
+
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
@@ -48,8 +48,11 @@ export class AppComponent {
       this.username = user.username;
     }
 
+    const result = EMPTY.pipe(isEmpty());
 
-    this.getProfile();
+    if(result){
+      this.getProfile() 
+    }
   }
 
   public getProfile(): void {

@@ -1,0 +1,17 @@
+<div class="education-container my-5">
+    <h3 class="title-main text-center fs-2 mb-3">Education</h3>
+    <div class="row">
+        <div class="col" *ngFor="let education of educationList">
+            <div class="card" style="width: 18rem;">
+                <img *ngIf="education.image" [src]="education.image.imagenUrl" [alt]="education.name"
+                    class="card-img-top">
+                <img *ngIf="!education.image" src="https://via.placeholder.com/400" class="card-img-top"
+                    alt="no hay imagen">
+                <div class="card-body">
+                    <h5 class="card-title text-black">{{education.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -23,6 +23,14 @@
                 <mat-icon>home</mat-icon>
                 <span>Home</span>
             </button>
+            <button mat-button class="menu-button" routerLink="/my-projects">
+                <mat-icon>folder</mat-icon>
+                <span>projects</span>
+            </button>
+            <button mat-button class="menu-button" routerLink="/my-educations">
+                <mat-icon>school</mat-icon>
+                <span>educations</span>
+            </button>
             <button mat-button class="menu-button" routerLink="/login" *ngIf="!isLoggedIn">
                 <mat-icon>account_box</mat-icon>
                 <span>Login</span>

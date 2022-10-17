@@ -29,6 +29,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { httpInterceptorProviders } from './helpers/http.interceptor';
 import { SpinnerModule } from './components/spinner/spinner.module';
+import { ProjectspageComponent } from './pages/projectspage/projectspage.component';
+import { EducationpageComponent } from './pages/educationpage/educationpage.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { SpinnerModule } from './components/spinner/spinner.module';
     ExperienceFormComponent,
     LoginComponent,
     RegisterComponent,
+    ProjectspageComponent,
+    EducationpageComponent,
   ],
   imports: [
     BrowserModule,
