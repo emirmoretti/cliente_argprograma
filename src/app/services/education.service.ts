@@ -18,19 +18,19 @@ export class EducationService {
   constructor(private http: HttpClient) { }
 
   public getEducationById(id: any): Observable<Education> {
-    return this.http.get<Education>(`${this.apiServerUrl}/education/${id}`, { headers: this.httpHeaders })
+    return this.http.get<Education>(`${this.apiServerUrl}/education/${id}`)
   }
 
   public getEducation(): Observable<Education[]> {
-    return this.http.get<Education[]>(`${this.apiServerUrl}/education`, { headers: this.httpHeaders })
+    return this.http.get<Education[]>(`${this.apiServerUrl}/education`)
   }
 
   public addEducation(education: Education): Observable<Education> {
-    return this.http.post<Education>(`${this.apiServerUrl}/education`, education, { headers: this.httpHeaders });
+    return this.http.post<Education>(`${this.apiServerUrl}/education`, education);
   }
 
   public updateEducation(education: Education): Observable<Education> {
-    return this.http.put<Education>(`${this.apiServerUrl}/education/${education.id}`, education, { headers: this.httpHeaders });
+    return this.http.put<Education>(`${this.apiServerUrl}/education/${education.id}`, education);
   }
 
   public delete(id: number): Observable<Education> {
