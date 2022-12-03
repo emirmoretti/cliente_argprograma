@@ -1,33 +1,42 @@
 <div class="container my-5">
-    <div class="my-5">
-        <h3 class="title-main text-center fs-2 mb-5">Proyectos</h3>
-        <div class="row">
-            <div class="col" *ngFor="let project of projectList">
-                <div class="card" style="width: 18rem;">
-                    <img *ngIf="project.image" [src]="project.image.imagenUrl" class="card-img-top"
-                        alt="{{project.name}}">
-                    <img *ngIf="!project.image" src="https://via.placeholder.com/400" alt="{{project.name}}">
-                    <div class="card-body">
-                        <h5 class="card-title text-black">{{project.name}}</h5>
-                        <p class="card-text text-black">
-                            {{project.description}}
-                        </p>
-                        <a [href]="project.urlRepo" class="btn btn-primary">Go repo</a>
-                        <a [href]="project.urlDemo" class="btn btn-info ms-2">Go demo</a>
-                    </div>
-                </div>
-            </div>
+
+  <h3 class="title-main text-center fs-2 mb-5">Proyectos</h3>
+
+  <div class="projects__container">
+    <div class="projects__container-card my-2" *ngFor="let project of projectList; let indexOfElement=index">
+      <div class="projects__container-img">
+        <img *ngIf="project.image" [src]="project.image.imagenUrl" alt="{{project.name}}">
+        <img *ngIf="!project.image" src="https://via.placeholder.com/400" alt="{{project.name}}">
+        <div class="links">
+          <a [href]="project.urlRepo" class="">
+            <i class="fa-brands fa-github"></i>
+            github
+          </a>
+          <a [href]="project.urlDemo" class="">
+            <i class="fa-solid fa-eye"></i>
+            demo
+          </a>
         </div>
+      </div>
+      <div class="text">
+        <h3 class="">{{project.name}}</h3>
+        <p class="">
+          {{project.description}}
+        </p>
+      </div>
     </div>
-    <div class="">
-        <h3 class="title-main text-center fs-2 mb-5">Mis skills</h3>
-        <div class="row">
-            <div class="col col-md-3" *ngFor="let skill of skillsList">
-                <div class="w-25">
-                    <img [src]="skill.image.imagenUrl" alt="" class="img-fluid">
-                    <p>{{skill.name}}</p>
-                </div>
-            </div>
+  </div>
+
+  <div class="container my-5">
+    <h3 class="title-main text-center fs-2 mb-5">Mis skills</h3>
+    <div class="row gx-5 gy-5">
+      <div class="col col-md-3" *ngFor="let skill of skillsList">
+        <div class="skill-container">
+          <img *ngIf="skill.image != null" [src]="skill.image.imagenUrl" alt="" class="img-fluid">
+          <p>{{skill.name}}</p>
         </div>
+      </div>
     </div>
+  </div>
+
 </div>

@@ -1,33 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Roboto+Mono:wght@400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Raleway:wght@400;500;600&display=swap');
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 75px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
 }
 
 body {
-    font-weight: 400;
-    overflow-x: hidden;
-    position: relative;
-    background-color: #121212 !important;
-    color: #fff !important;
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #121212 !important;
+  color: #fff !important;
 }
 
 h1,
@@ -36,9 +35,9 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
-    padding: 0;
-    line-height: normal;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
 }
 
 p,
@@ -46,46 +45,46 @@ a,
 li,
 button,
 ul {
-    margin: 0;
-    padding: 0;
-    line-height: normal;
-    text-decoration: none;
-    color: #ffff;
-    font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+  color: #ffff;
+  font-family: 'Raleway', sans-serif;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .title-main {
-    font-family: 'Finger Paint', cursive !important;
+  font-family: 'Lato', sans-serif;
 }
 
 .w-12 {
-    width: 3rem;
+  width: 3rem;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s;
-    -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
 }
 
 .card-black {
-    background: rgba(0, 0, 0, .5);
-    padding: 20px;
+  background: rgba(0, 0, 0, .5);
+  padding: 20px;
 }
 
 .thead {
-    tr {
-        th {
-            color: white;
-            font-size: 20px;
-        }
+  tr {
+    th {
+      color: white;
+      font-size: 20px;
     }
+  }
 }
 
 
@@ -94,79 +93,87 @@ input:-webkit-autofill:active {
 
 /* CSS */
 .button-30 {
-    align-items: center;
-    appearance: none;
-    background-color: #FCFCFD;
-    border-radius: 4px;
-    border-width: 0;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    box-sizing: border-box;
-    color: #36395A;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: "JetBrains Mono", monospace;
-    height: 48px;
-    justify-content: center;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    padding-left: 16px;
-    padding-right: 16px;
-    position: relative;
-    text-align: left;
-    text-decoration: none;
-    transition: box-shadow .15s, transform .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow, transform;
-    font-size: 18px;
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
 }
 
 .disabled {
-    cursor: none;
+  cursor: none;
 }
 
 .button-30:focus {
-    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
 .button-30:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    transform: translateY(-2px);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
 
 .button-30:active {
-    box-shadow: #D6D6E7 0 3px 7px inset;
-    transform: translateY(2px);
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 
 .form-box {
-    background: rgba(255,255,255,0.45);
-    -webkit-backdrop-filter: blur(42px);
-    backdrop-filter: blur(42px);
-    border: 1px solid rgba(255,255,255,0.225);
-    border-radius: 20px;
+  background: rgba(255, 255, 255, 0.45);
+  -webkit-backdrop-filter: blur(42px);
+  backdrop-filter: blur(42px);
+  border: 1px solid rgba(255, 255, 255, 0.225);
+  border-radius: 20px;
 }
 
 .tbody {
-    tr {
-        td {
-            color: white;
-            font-size: 1rem;
-        }
+  tr {
+    td {
+      color: white;
+      font-size: 1rem;
     }
+  }
 }
 
 .overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(74,74, 74, 1);
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(74, 74, 74, 1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.text-gradient {
+  background: #945BF1;
+  background: linear-gradient(to right, #945BF1 0%, #F67E4D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
