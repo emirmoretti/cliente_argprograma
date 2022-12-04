@@ -6,7 +6,8 @@ import { Profile } from './models/profile';
 import { Observable, EMPTY, isEmpty } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from './services/storage.service';
-import { AuthService } from './services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-root',
@@ -28,11 +29,15 @@ export class AppComponent {
 
   constructor(
     private storageService: StorageService,
-    private authService: AuthService,
     private observer: BreakpointObserver,
     private profileService: ProfileService,
-    private cd: ChangeDetectorRef
-  ) { this.profile = this.profileService.SharingObservable; }
+    private cd: ChangeDetectorRef,
+    public translate: TranslateService
+  ) {
+    this.profile = this.profileService.SharingObservable;
+    translate.addLangs(['en', 'es']);
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit(): void {
 
@@ -50,8 +55,8 @@ export class AppComponent {
 
     const result = EMPTY.pipe(isEmpty());
 
-    if(result){
-      this.getProfile() 
+    if (result) {
+      this.getProfile()
     }
   }
 
@@ -81,7 +86,9 @@ export class AppComponent {
   }
 
   logout(): void {
-   this.storageService.signOut()
-   window.location.reload()
+    this.storageService.signOut()
+    window.location.reload()
   }
+
+
 }

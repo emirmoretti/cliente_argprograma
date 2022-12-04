@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EducationComponent } from './components/education/education.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -31,7 +30,10 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
 import { SpinnerModule } from './components/spinner/spinner.module';
 import { ProjectspageComponent } from './pages/projectspage/projectspage.component';
 import { EducationpageComponent } from './pages/educationpage/educationpage.component';
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SwitchLangComponent } from './components/switch-lang/switch-lang.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { EducationpageComponent } from './pages/educationpage/educationpage.comp
     RegisterComponent,
     ProjectspageComponent,
     EducationpageComponent,
+    SwitchLangComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,9 +70,20 @@ import { EducationpageComponent } from './pages/educationpage/educationpage.comp
     MatIconModule,
     MatDividerModule,
     MatMenuModule,
-    SpinnerModule
+    SpinnerModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
