@@ -1,91 +1,91 @@
 <section class="home-page">
-    <div class="container">
-        <div class="banner">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="title">
-                        <h1 class="text-gradient">Hola! Soy <span class="text-capitalize">{{profile.name}} {{profile.lastName}}</span> - <span
-                                class="text-capitalize">{{profile.title}}</span></h1>
-                        <p class="fs-4 lh-sm mb-5">
-                            {{profile.description}}
-                        </p>
-                        <button class="button-30" (click)="openModal()" *ngIf="isLogged"> {{profile.id == null ?
-                            'crear': 'editar'}}
-                            perfil</button>
-                    </div>
-                </div>
-                <div class="col col-md-6">
-                    <div>
-                        <img class="img-fluid" src="../../../assets/header-img.svg" alt="">
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="banner">
+      <div class="row">
+        <div class="col-12 col-md-6 d-flex align-items-center ">
+          <div class="title">
+            <h1 class="text-gradient"> {{'welcome' | translate}}
+              <span class="text-capitalize">{{profile.name}} {{profile.lastName}}</span> -
+              <span translate [translateParams]="{title: profile.title}" class="text-capitalize">profile</span>
+            </h1>
+            <p translate [translateParams]="{description: profile.description}" class="fs-4 lh-sm mb-5">
+              description
+            </p>
+            <button class="button-30" (click)="openModal()" *ngIf="isLogged"> {{profile.id == null ?
+              'crear': 'editar'}}
+              perfil</button>
+          </div>
         </div>
+        <div class="col col-md-6">
+          <div>
+            <img class="img-fluid" src="../../../assets/header-img.svg" alt="">
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <div *ngIf="modal" class="modal" tabindex="-1" style="display: block;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="title-modal d-flex justify-content-between">
-                <h3>Editar perfil</h3>
-                <button type="button" (click)="closeModal()" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <form #profileForm="ngForm" class="text-white">
-                            <div class="row">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="name" name="name" #name="ngModel"
-                                        [(ngModel)]="profile.name" autocomplete="off">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="lastName" class="form-label">Apellido</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName"
-                                        #lastName="ngModel" [(ngModel)]="profile.lastName" autocomplete="off">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="title" class="form-label">Titulo</label>
-                                    <input type="text" class="form-control" id="title" name="title" #title="ngModel"
-                                        [(ngModel)]="profile.title" autocomplete="off">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="description" class="form-label">Descripcion</label>
-                                    <textarea type="text" class="form-control" id="description" name="description"
-                                        #description="ngModel" [(ngModel)]="profile.description"
-                                        autocomplete="off"></textarea>
-                                </div>
-                                <div>
-                                    <button *ngIf="!profile.id else elseBlock" class="button-30"
-                                        (click)="createProfile()">Crear</button>
-                                    <ng-template #elseBlock>
-                                        <button (click)="updateProfile()" class="button-30">Editar</button>
-                                    </ng-template>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col img-container" *ngIf="profile.id != null">
-                        <div class="d-flex flex-column img-section">
-                            <h3 class="text-center fs-3 fst-italic">Imagen</h3>
-                            <div class="w-50 align-self-center">
-                                <img class="img-fluid" *ngIf="profile.image" src="{{profile.image.imagenUrl}}" alt="{{profile.name}}"
-                                    style="cursor: pointer;">
-                            </div>
-                            <div class="img-input">
-                                <input (change)="seleccionarFoto($event)" type="file" class="form-control"
-                                    aria-describedby="selectedFile" aria-label="Upload" required>
-                                <button (click)="enviarFoto()" type="button" id="inputGroupFileAddon04"
-                                    [ngClass]="fotoSeleccionada != null ? 'button-30' : 'button-30 pe-none'"
-                                    [disabled]="!fotoSeleccionada">Subir</button>
-                            </div>
-                        </div>
-                    </div>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="title-modal d-flex justify-content-between">
+        <h3>Editar perfil</h3>
+        <button type="button" (click)="closeModal()" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <form #profileForm="ngForm" class="text-white">
+              <div class="row">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="name" name="name" #name="ngModel"
+                    [(ngModel)]="profile.name" autocomplete="off">
                 </div>
+                <div class="mb-3">
+                  <label for="lastName" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" id="lastName" name="lastName" #lastName="ngModel"
+                    [(ngModel)]="profile.lastName" autocomplete="off">
+                </div>
+                <div class="mb-3">
+                  <label for="title" class="form-label">Titulo</label>
+                  <input type="text" class="form-control" id="title" name="title" #title="ngModel"
+                    [(ngModel)]="profile.title" autocomplete="off">
+                </div>
+                <div class="mb-3">
+                  <label for="description" class="form-label">Descripcion</label>
+                  <textarea type="text" class="form-control" id="description" name="description" #description="ngModel"
+                    [(ngModel)]="profile.description" autocomplete="off"></textarea>
+                </div>
+                <div>
+                  <button *ngIf="!profile.id else elseBlock" class="button-30" (click)="createProfile()">Crear</button>
+                  <ng-template #elseBlock>
+                    <button (click)="updateProfile()" class="button-30">Editar</button>
+                  </ng-template>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col img-container" *ngIf="profile.id != null">
+            <div class="d-flex flex-column img-section">
+              <h3 class="text-center fs-3 fst-italic">Imagen</h3>
+              <div class="w-50 align-self-center">
+                <img class="img-fluid" *ngIf="profile.image" src="{{profile.image.imagenUrl}}" alt="{{profile.name}}"
+                  style="cursor: pointer;">
+              </div>
+              <div class="img-input">
+                <input (change)="seleccionarFoto($event)" type="file" class="form-control"
+                  aria-describedby="selectedFile" aria-label="Upload" required>
+                <button (click)="enviarFoto()" type="button" id="inputGroupFileAddon04"
+                  [ngClass]="fotoSeleccionada != null ? 'button-30' : 'button-30 pe-none'"
+                  [disabled]="!fotoSeleccionada">Subir</button>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -15,5 +15,6 @@ export class SwitchLangComponent implements OnInit {
 
   switchLang(lang: string) {
     this.translate.use(lang);
+    console.log(this.translate.currentLang);
   }
 }

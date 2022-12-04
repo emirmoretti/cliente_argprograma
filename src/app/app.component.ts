@@ -35,8 +35,8 @@ export class AppComponent {
     public translate: TranslateService
   ) {
     this.profile = this.profileService.SharingObservable;
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
+    translate.addLangs(['es', 'en']);
+    translate.setDefaultLang('es');
   }
 
   ngOnInit(): void {

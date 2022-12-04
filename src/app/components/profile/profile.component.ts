@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Profile } from 'src/app/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -20,10 +21,14 @@ export class ProfileComponent implements OnInit {
 
   isLogged: boolean = false;
 
+
   constructor(
     private profileService: ProfileService,
-    private storage: StorageService
-  ) { }
+    private storage: StorageService,
+    public translate: TranslateService
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.getProfile();

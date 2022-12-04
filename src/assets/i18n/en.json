@@ -2,5 +2,8 @@
   "home": "Home",
   "project": "Projects",
   "education": "Education",
-  "login": "login"
+  "login": "Login",
+  "profile": "Fullstack developer",
+  "description": "I'm a fullstack developer. I met the world of programming in 2021 at the beggining of 2021. My goal is to learn every day, finding a job in a company that will allow me to grow in the IT world and where I can contribute all the knowledge I have learned. ",
+  "welcome": "Hello! I'm"
 }
